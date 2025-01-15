@@ -2,13 +2,18 @@
 #include "Literal.h"
 using namespace std;
 
-template<typename E>
-Literal<E>::Literal(E value): value(value) {}
+template<typename T>
+Literal<T>::Literal(T value): value(value) {}
 
-template<typename E>
-void Literal<E>::display(){
+template<typename T>
+Literal<T>::~Literal() { value.clear(); }
+
+template<typename T>
+void Literal<T>::display(){
     cout << value;
 }
 
-template<typename E>
-Literal<E>::~Literal() { value.clear(); }
+template<typename T>
+Expression* Literal<T>::eval(){
+    return this;
+}

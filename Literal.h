@@ -3,14 +3,15 @@
 
 #include "Expression.h"
 
-template<typename E> class Literal: public Expression{
+template<typename T> class Literal: public Expression{
 private:
     E value;
 public:
     Literal();
-    Literal(E value);
+    Literal(T value);
 
     void display();
+    Expression* eval();
 
     ~Literal();
 };

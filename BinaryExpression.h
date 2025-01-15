@@ -14,6 +14,7 @@ public:
     ~BinaryExpression();
     
     void display();
+    Expression* eval();
 };
 
 #endif

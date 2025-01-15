@@ -12,8 +12,9 @@ private:
 public:
     UnaryExpression(Operand *op, Expression *e);
     ~UnaryExpression();
-    void print();
-    int evaluate();
+
+    void display();
+    Expression* eval();
 };
 
 #endif

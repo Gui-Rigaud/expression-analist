@@ -18,7 +18,7 @@ int main() {
     // }
 
     cin >> token;
-    Expression *e = new Expression(token);
+    Expression *e = new Expression();
     e = e->parse_exp();
 
     BinaryExpression *b = dynamic_cast<BinaryExpression*>(e);
