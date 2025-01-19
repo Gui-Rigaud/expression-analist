@@ -2,16 +2,18 @@
 #define OPERAND_H
 
 #include <iostream>
+using namespace std;
 
 class Operand {
 private:
-    std::string value;
+	string value;
 public:
-    Operand();
-    Operand(std::string value);
-    ~Operand();
+	Operand();
+	Operand(string value);
+	~Operand();
 
-    std::string getValue();
+	string getValue();
+	void setValue(string value);
 };
 
 #endif

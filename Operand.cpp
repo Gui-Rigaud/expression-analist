@@ -1,8 +1,12 @@
 #include <iostream>
 #include "Operand.h"
 
-Operand::Operand(std::string value) : value(value) {}
+using namespace std;
+
+Operand::Operand(string value) : value(value) {}
 
 Operand::~Operand(){ value.clear(); }
 
-std::string Operand::getValue(){ return value; }
+string Operand::getValue(){ return value; }
+
+void Operand::setValue(string value){ this->value = value; }

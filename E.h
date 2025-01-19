@@ -3,8 +3,6 @@
 
 class E{
 public:
-    E();
-    ~E();
     virtual void display() = 0;
     virtual E* eval() = 0;
 };

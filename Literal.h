@@ -3,17 +3,32 @@
 
 #include "Expression.h"
 
-template<typename T> class Literal: public Expression{
+template<typename T> class Literal: public Expression {
 private:
-    E value;
+	T value;
 public:
-    Literal();
-    Literal(T value);
+	Literal();
+	Literal(T value);
+	
+	~Literal();
+	
+	Literal<T>* operator+(const Literal<T>& r);
+	Literal<T>* operator-(const Literal<T>& r);
+	Literal<T>* operator*(const Literal<T>& r);
+	Literal<T>* operator/(const Literal<T>& r);
+	Literal<bool>* operator==(const Literal<T>& r);
+	Literal<bool>* operator>=(const Literal<T>& r);
+	Literal<bool>* operator<=(const Literal<T>& r);
+	Literal<bool>* operator>(const Literal<T>& r);
+	Literal<bool>* operator<(const Literal<T>& r);
+	
+	Literal<bool>* operator&&(const Literal<bool>& r);
+	Literal<bool>* operator||(const Literal<bool>& r);
 
-    void display();
-    Expression* eval();
+	T getValue();
 
-    ~Literal();
+	void display();
+	Expression* eval();
 };
 
 #endif

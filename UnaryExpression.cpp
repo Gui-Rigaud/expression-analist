@@ -5,13 +5,26 @@ using namespace std;
 
 UnaryExpression::UnaryExpression(Operand *op, Expression *e) : op(op), e(e) {}
 
-UnaryExpression::~UnaryExpression(){ delete op; delete e; }
+UnaryExpression::~UnaryExpression(){ delete op, e; }
 
 void UnaryExpression::display(){
-    cout << op->getValue();
-    e->display();
+	Literal<int> *r = dynamic_cast<Literal<int>*>(this->eval());
+	if(r)
+	{
+		cout << r->getValue();
+	}else
+	{
+		throw new Error("error");
+	}
 }
 
 Expression* UnaryExpression::eval(){
-    return e->eval();
+	Literal<int> *r = dynamic_cast<Literal<int>*>(e->eval());
+	if (r == NULL)
+	{
+		throw new Error("error");
+	}else
+	{
+		return new Literal<int>(-(r->getValue()));
+	}
 }
