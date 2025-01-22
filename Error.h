@@ -1,18 +1,17 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-#include <exception>
 #include <iostream>
 using namespace std;
 
-class Error : public exception {
+class Error{
 private:
-	string msg_;
+	string msg;
 public:
-	explicit Error(const string& message) : msg_(message) {}
+	Error(const string& message) : msg(message) {}
 	
-	virtual const char* what() const noexcept override {
-		return msg_.c_str();
+	string getMessage() const{
+		return msg;
 	}
 };
 
