@@ -20,7 +20,7 @@ int main()
 			e->display();
 		}catch(Error *e)
 		{
-			cout << e->what();
+			cout << e->getMessage();
 		}
 		cout << endl;
 	}
