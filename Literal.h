@@ -17,6 +17,7 @@ public:
 	Literal<T>* operator*(const Literal<T>& r);
 	Literal<T>* operator/(const Literal<T>& r);
 	Literal<bool>* operator==(const Literal<T>& r);
+	Literal<bool>* operator!=(const Literal<T>& r);
 	Literal<bool>* operator>=(const Literal<T>& r);
 	Literal<bool>* operator<=(const Literal<T>& r);
 	Literal<bool>* operator>(const Literal<T>& r);

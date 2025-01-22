@@ -65,6 +65,12 @@ Literal<bool> *Literal<T>::operator==(const Literal<T> &r)
 }
 
 template <typename T>
+Literal<bool> *Literal<T>::operator!=(const Literal<T> &r)
+{
+	return new Literal<bool>(this->value != r.value);
+}
+
+template <typename T>
 Literal<bool> *Literal<T>::operator>=(const Literal<T> &r)
 {
 	return new Literal<bool>(this->value >= r.value);

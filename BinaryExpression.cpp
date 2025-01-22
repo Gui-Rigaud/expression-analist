@@ -11,11 +11,11 @@ BinaryExpression::~BinaryExpression(){ delete left, op, right; }
 
 void BinaryExpression::display()
 {
-	if (dynamic_cast<Literal<int> *>(left) && (op->getValue() != "==" && op->getValue() != ">=" && op->getValue() != "<=" && op->getValue() != ">" && op->getValue() != "<"))
+	if (dynamic_cast<Literal<int> *>(left) && (op->getValue() != "!=" && op->getValue() != "==" && op->getValue() != ">=" && op->getValue() != "<=" && op->getValue() != ">" && op->getValue() != "<"))
 	{
 		dynamic_cast<Literal<int> *>(this->eval())->display();
 	}
-	else if (dynamic_cast<Literal<bool> *>(left) || (op->getValue() == "==" || op->getValue() == ">=" || op->getValue() == "<=" || op->getValue() == ">" || op->getValue() == "<"))
+	else if (dynamic_cast<Literal<bool> *>(left) || (op->getValue() != "!=" && op->getValue() == "==" || op->getValue() == ">=" || op->getValue() == "<=" || op->getValue() == ">" || op->getValue() == "<"))
 	{
 		dynamic_cast<Literal<bool> *>(this->eval())->display();
 	}
@@ -92,6 +92,11 @@ Expression *BinaryExpression::eval()
 		else if (opValue == "==")
 		{
 			result = *l == *r;
+			isInt = false;
+		}
+		else if (opValue == "!=")
+		{
+			result = *l != *r;
 			isInt = false;
 		}
 		else if (opValue == ">=")
