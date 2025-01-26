@@ -15,7 +15,7 @@ void BinaryExpression::display()
 	{
 		dynamic_cast<Literal<int> *>(this->eval())->display();
 	}
-	else if (dynamic_cast<Literal<bool> *>(left) || (op->getValue() != "!=" && op->getValue() == "==" || op->getValue() == ">=" || op->getValue() == "<=" || op->getValue() == ">" || op->getValue() == "<"))
+	else if (dynamic_cast<Literal<bool> *>(left) || (op->getValue() == "!=" || op->getValue() == "==" || op->getValue() == ">=" || op->getValue() == "<=" || op->getValue() == ">" || op->getValue() == "<"))
 	{
 		dynamic_cast<Literal<bool> *>(this->eval())->display();
 	}
@@ -23,6 +23,10 @@ void BinaryExpression::display()
 	{
 		left = left->eval();
 		this->display();
+	}
+	else
+	{
+		throw new Error("error");
 	}
 }
 
